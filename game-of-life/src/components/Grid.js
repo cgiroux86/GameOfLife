@@ -6,7 +6,7 @@ const initialRows = new Array(30).fill(0);
 const initialGrid = new Array(30).fill(initialRows);
 
 export default function Grid() {
-  const [grid, setGrid] = useState(() => initialGrid);
+  const [grid, setGrid] = useState(initialGrid);
 
   return (
     <div
