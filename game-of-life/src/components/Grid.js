@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import shortid from "shortid";
 import produce from "immer";
 import { gol } from "../functions/gol-alogrithm";
+//set up rows and columns in 2d array with all 0's to start
 const initialRows = new Array(30).fill(0);
 const initialGrid = new Array(30).fill(initialRows);
 
