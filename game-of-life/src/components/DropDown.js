@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Select, MenuItem, InputLabel } from "@material-ui/core";
-import { randomGrid } from "../functions/grid-presets";
+import { randomGrid, fourCorners } from "../functions/grid-presets";
 
 export default function DropDown({ grid, setGrid }) {
   const [dropdown, setDropdown] = useState("Select a starting pattern");
@@ -10,10 +10,10 @@ export default function DropDown({ grid, setGrid }) {
         labelId="default-input-label"
         id="select-start-style"
         value={dropdown}
-        style={{ width: "20%" }}
+        style={{ width: "100%" }}
         onChange={(e) => {
           setDropdown(e.target.value);
-          setGrid(randomGrid(grid));
+          setGrid(fourCorners(grid));
         }}
       >
         <MenuItem value={dropdown} disabled>
