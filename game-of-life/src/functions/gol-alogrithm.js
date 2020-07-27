@@ -1,4 +1,5 @@
 //need to find the updated dead and alive cells based on neighbors
+//calculate if cell is dead or alive, how many live neighbors it has
 export const gol = (arr) => {
   const newArr = arr.map((row, i) =>
     row.map((col, j) => gol_helper(arr, i, j))
