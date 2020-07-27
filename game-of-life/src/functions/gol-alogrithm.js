@@ -4,7 +4,6 @@ export const gol = (arr) => {
   const newArr = arr.map((row, i) =>
     row.map((col, j) => {
       const neighbors = gol_helper(arr, i, j);
-      console.log(neighbors);
       if ((arr[i][j] === 1 && neighbors == 2) || neighbors === 3) {
         return 1;
       } else if (arr[i][j] === 0 && neighbors === 3) {
@@ -14,7 +13,6 @@ export const gol = (arr) => {
       }
     })
   );
-  console.log(newArr);
   return newArr;
 };
 

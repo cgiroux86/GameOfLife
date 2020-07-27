@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import shortid from "shortid";
 import produce from "immer";
 import { gol } from "../functions/gol-alogrithm";
@@ -9,20 +9,28 @@ const initialGrid = new Array(30).fill(initialRows);
 export default function Grid() {
   const [grid, setGrid] = useState(initialGrid);
   const [running, setRunning] = useState(false);
-  let ref = useRef();
+  const ref = useRef(running);
   ref.current = running;
 
+  //if running, call gol algo every x seconds to update state
+  //dont want to repopulate simulation on every re-render, so we use useCallback
+  const simulation = useCallback(() => {
+    if (!ref.current) {
+      return;
+    }
+    setGrid((g) => gol(g));
+    setTimeout(simulation, 1000);
+  }, []);
+
   useEffect(() => {
-    // console.log(ref.current);
-    running &&
-      setTimeout(() => {
-        setGrid(gol(grid));
-      }, 1000);
-  }, [grid, running]);
+    running && simulation();
+  }, [running]);
 
   return (
     <div>
-      <button onClick={() => setRunning(!running)}>start simulation</button>
+      <button onClick={() => setRunning(!running)}>{`${
+        !running ? "start" : "stop"
+      }`}</button>
       <div
         style={{
           display: "grid",
@@ -46,7 +54,6 @@ export default function Grid() {
                       copy[i][j] = 1;
                     });
                     setGrid(updated);
-                    gol(updated);
                   }}
                 ></div>
               );
