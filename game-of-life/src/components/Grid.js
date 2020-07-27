@@ -9,15 +9,19 @@ const initialGrid = new Array(30).fill(initialRows);
 export default function Grid() {
   const [grid, setGrid] = useState(initialGrid);
   const [running, setRunning] = useState(false);
-  const ref = useRef(running);
-  ref.current = running;
+  const [generation, setGeneration] = useState(0);
+  const runRef = useRef(running);
+  const genRef = useRef(generation);
+  genRef.current = generation;
+  runRef.current = running;
 
   //if running, call gol algo every x seconds to update state
   //dont want to repopulate simulation on every re-render, so we use useCallback
   const simulation = useCallback(() => {
-    if (!ref.current) {
+    if (!runRef.current) {
       return;
     }
+    setGeneration((gen) => gen + 1);
     setGrid((g) => gol(g));
     setTimeout(simulation, 1000);
   }, []);
@@ -28,6 +32,7 @@ export default function Grid() {
 
   return (
     <div>
+      {running && <div>{`generation number: ${genRef.current}`}</div>}
       <button onClick={() => setRunning(!running)}>{`${
         !running ? "start" : "stop"
       }`}</button>
