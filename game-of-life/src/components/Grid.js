@@ -70,9 +70,7 @@ export default function Grid() {
                       height: "20px",
                       border: "1px solid black",
 
-                      backgroundColor: `${
-                        grid[i][j] ? generateRGB() : "white"
-                      }`,
+                      backgroundColor: `${grid[i][j] ? "white" : "grey"}`,
                     }}
                     onClick={() => {
                       const updated = produce(grid, (copy) => {
@@ -96,17 +94,11 @@ export default function Grid() {
             flexDirection: "column",
             border: "1px solid orange",
             width: "100%",
-            position: "relative",
-            right: "100px",
-            top: "12px",
           }}
         >
-          <div>
-            {/* <DropDown grid={grid} setGrid={setGrid} /> */}
-            Presets
-          </div>
+          <div>Presets</div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Images setGrid={setGrid} />
+            <Images setGrid={setGrid} grid={grid} />
           </div>
         </div>
       </div>

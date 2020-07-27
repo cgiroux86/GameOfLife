@@ -24,6 +24,5 @@ export const fourCorners = (arr) => {
       }
     })
   );
-  console.log(corners, "corners");
   return corners;
 };
