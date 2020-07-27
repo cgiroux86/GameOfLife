@@ -33,7 +33,7 @@ export default function Grid() {
                     copy[i][j] = 1;
                   });
                   setGrid(updated);
-                  gol(updated, i, j);
+                  gol(updated);
                 }}
               ></div>
             );
