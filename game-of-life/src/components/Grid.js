@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import shortid from "shortid";
 import produce from "immer";
 import { gol } from "../functions/gol-alogrithm";
@@ -8,6 +8,12 @@ const initialGrid = new Array(30).fill(initialRows);
 
 export default function Grid() {
   const [grid, setGrid] = useState(initialGrid);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setGrid(gol(grid));
+    }, 1000);
+  }, [grid]);
 
   return (
     <div

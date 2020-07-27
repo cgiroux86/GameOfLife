@@ -1,8 +1,9 @@
+//need to find the updated dead and alive cells based on neighbors
 export const gol = (arr) => {
   const newArr = arr.map((row, i) =>
     row.map((col, j) => gol_helper(arr, i, j))
   );
-  console.log("mapped", newArr);
+  return newArr;
 };
 
 export const gol_helper = (arr, idx1, idx2) => {
