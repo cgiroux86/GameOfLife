@@ -2,9 +2,12 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import shortid from "shortid";
 import produce from "immer";
 import { gol } from "../functions/gol-alogrithm";
+import { generateRGB } from "../functions/generate-rgb";
+
+import DropDown from "./DropDown";
 //set up rows and columns in 2d array with all 0's to start
-const initialRows = new Array(30).fill(0);
-const initialGrid = new Array(30).fill(initialRows);
+const initialRows = new Array(25).fill(0);
+const initialGrid = new Array(25).fill(initialRows);
 
 export default function Grid() {
   const [grid, setGrid] = useState(initialGrid);
@@ -33,9 +36,6 @@ export default function Grid() {
   return (
     <div>
       {running && <div>{`generation number: ${genRef.current}`}</div>}
-      <button onClick={() => setRunning(!running)}>{`${
-        !running ? "start" : "stop"
-      }`}</button>
       <div
         style={{
           display: "grid",
@@ -52,7 +52,7 @@ export default function Grid() {
                     width: "20px",
                     height: "20px",
                     border: "1px solid black",
-                    backgroundColor: `${grid[i][j] ? "blue" : "white"}`,
+                    backgroundColor: `${grid[i][j] ? generateRGB() : "white"}`,
                   }}
                   onClick={() => {
                     const updated = produce(grid, (copy) => {
@@ -65,6 +65,10 @@ export default function Grid() {
             })
           )}
       </div>
+      <DropDown grid={grid} setGrid={setGrid} />
+      <button onClick={() => setRunning(!running)}>{`${
+        !running ? "start" : "stop"
+      }`}</button>
     </div>
   );
 }
