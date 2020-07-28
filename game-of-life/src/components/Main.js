@@ -7,14 +7,7 @@ export default function Main(props) {
   return (
     <>
       <h1>Conway's Game of Life</h1>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          border: "1px solid lime",
-        }}
-      >
+      <div className="main_container">
         <Grid />
       </div>
     </>

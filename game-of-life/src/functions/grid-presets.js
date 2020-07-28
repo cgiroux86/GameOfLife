@@ -26,3 +26,30 @@ export const fourCorners = (arr) => {
   );
   return corners;
 };
+
+export const gliders = (arr) => {
+  const glide = arr.map((rows, i) =>
+    rows.map((cols, j) => {
+      if (i >= 9 && i <= 14) {
+        if ((i === 10 || i === 13) && j === 11) {
+          return 0;
+        }
+        if (j >= 10 && j <= 12) {
+          return 1;
+        }
+      } else return 0;
+    })
+  );
+  console.log(glide, arr);
+  return glide;
+};
+
+export const findLabelTitle = (label, obj) => {
+  console.log(label, obj, "objjjjj");
+  switch (label) {
+    case "Random":
+      return obj[label];
+    case "Four Corners":
+      return obj[label];
+  }
+};
