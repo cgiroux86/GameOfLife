@@ -12,6 +12,9 @@ import { generateRGB } from "../functions/generate-rgb";
 import Images from "./Images";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import PauseIcon from "@material-ui/icons/Pause";
+import StopIcon from "@material-ui/icons/Stop";
 
 import DropDown from "./DropDown";
 import HowItWorks from "./HowItWorks";
@@ -44,6 +47,12 @@ export default function Grid() {
   useEffect(() => {
     running && simulation();
   }, [running]);
+
+  const handleStop = () => {
+    setRunning(false);
+    setGrid(initialGrid);
+    setGeneration(0);
+  };
 
   return (
     <div className="grid_container">
@@ -78,9 +87,20 @@ export default function Grid() {
               })
             )}
         </div>
-        <button onClick={() => setRunning(!running)}>{`${
-          !running ? "start" : "stop"
-        }`}</button>
+        <div>
+          <PauseIcon
+            style={{ fontSize: "100px", cursor: "pointer" }}
+            onClick={() => setRunning(!running)}
+          />
+          <PlayArrowIcon
+            style={{ fontSize: "100px", cursor: "pointer" }}
+            onClick={() => setRunning(!running)}
+          />
+          <StopIcon
+            style={{ fontSize: "100px", cursor: "pointer" }}
+            onClick={handleStop}
+          />
+        </div>
         <FormControlLabel
           label="RGB?"
           control={
@@ -99,7 +119,8 @@ export default function Grid() {
             style={{
               border: "1px solid purple",
               display: "flex",
-              flexWrap: "wrap",
+              flexDirection: "column",
+              height: "100%",
               // justifyContent: "center",
             }}
           >

@@ -6,7 +6,9 @@ import fourCorners from "../imgs/fourcCorners.png";
 export default function Main(props) {
   return (
     <>
-      <h1>Conway's Game of Life</h1>
+      <div>
+        <h1>Conway's Game of Life</h1>
+      </div>
       <div className="main_container">
         <Grid />
       </div>

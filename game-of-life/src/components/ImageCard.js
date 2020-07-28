@@ -72,13 +72,7 @@ export default function ImageCard({
           />
         </FormGroup>
         <div>
-          <img
-            className="card_img"
-            src={source}
-            alt="random grid layout"
-            // width="75px"
-            // height="75px"
-          ></img>
+          <img className="card_img" src={source} alt="random grid layout"></img>
         </div>
       </Card>
     </div>

@@ -14,18 +14,19 @@ export default function Images({ setGrid, grid }) {
   });
   return (
     <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        border: "2px solid magenta",
-        width: "100%",
-        justifyContent: "space-evenly",
-        alignItems: "space-between",
-      }}
+      className="choices"
+      //   style={{
+      //     display: "flex",
+      //     flexWrap: "wrap",
+      //     border: "2px solid magenta",
+      //     width: "100%",
+      //     justifyContent: "space-evenly",
+      //     alignItems: "space-between",
+      //   }}
     >
       {choices.map((elem, i) => {
         return (
-          <div style={{ border: "1px solid black" }}>
+          <div>
             <ImageCard
               source={sources[i] || random}
               label={elem}

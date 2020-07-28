@@ -6,12 +6,11 @@ export const Card = styled.div`
     display: flex;
     justify-content: space-between;
     background: grey;
-    margin: 7% 0;
+    margin: 10% 0;
     @media (max-width: 768px) {
       width: 100%;
       background: lightgrey;
-      margin: 0;
-      flex-wrap: wrap;
+      margin: 2% 0;
     }
   }
 `;
