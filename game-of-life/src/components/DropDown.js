@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Select, MenuItem, InputLabel } from "@material-ui/core";
-import { randomGrid, fourCorners } from "../functions/grid-presets";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 
@@ -20,7 +18,7 @@ export default function DropDown({ setSpeed, speed }) {
         defaultValue={500}
         getAriaValueText={handleSpeedChange}
         aria-labelledby="discrete-slider-small-steps"
-        step={100}
+        step={200}
         marks
         min={10}
         max={2000}

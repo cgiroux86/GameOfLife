@@ -133,7 +133,7 @@ export default function Grid() {
           <div>Presets</div>
           <div
             style={{
-              border: "1px solid purple",
+              // border: "1px solid purple",
               display: "flex",
               flexDirection: "column",
               height: "100%",

@@ -11,7 +11,7 @@ export default function HowItWorks() {
     <div className="how_it_works">
       <div
         style={{
-          border: "1px solid yellow",
+          // border: "1px solid yellow",
           display: "flex",
           justifyContent: "center",
         }}
@@ -31,7 +31,7 @@ export default function HowItWorks() {
       </div>
       <div
         style={{
-          border: "1px solid yellow",
+          // border: "1px solid yellow",
           display: "flex",
           justifyContent: "center",
           marginTop: "5%",

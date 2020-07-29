@@ -9,9 +9,10 @@ import {
   gliders,
   fourCornersSmall,
   glidersSmall,
+  stables,
 } from "../functions/grid-presets";
 import { withStyles } from "@material-ui/core/styles";
-import { purple, green } from "@material-ui/core/colors";
+import { green } from "@material-ui/core/colors";
 
 const w = window.screen.availWidth;
 
@@ -65,6 +66,9 @@ export default function ImageCard({
           starship: !active.starship,
           beehive: false,
         });
+        break;
+      case "Beehive":
+        setGrid(stables(grid));
     }
   };
   return (
@@ -82,11 +86,11 @@ export default function ImageCard({
             control={
               <PurpleSwitch
                 checked={
-                  label == "Random"
+                  label === "Random"
                     ? active["random"]
                     : label === "Four Corners"
                     ? active["corners"]
-                    : label == "Starship"
+                    : label === "Starship"
                     ? active["starship"]
                     : false
                 }
@@ -96,7 +100,7 @@ export default function ImageCard({
             label={label}
           />
         </FormGroup>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <img className="card_img" src={source} alt="random grid layout"></img>
         </div>
       </Card>

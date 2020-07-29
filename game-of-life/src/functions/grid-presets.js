@@ -84,6 +84,29 @@ export const glidersSmall = (arr) => {
   return glide;
 };
 
+export const stables = (arr) => {
+  const stable = arr.map((rows, i) =>
+    rows.map((cols, j) => {
+      if (i === 12 && j >= 6 && j <= 8) {
+        return 1;
+      } else if (i === 13 && j >= 5 && j <= 7) {
+        return 1;
+      } else if (i === 12 && j >= 17 && j <= 18) {
+        return 1;
+      } else if (i === 13 && j === 5) {
+        return 1;
+      } else if (i === 13 && j === 17) {
+        return 1;
+      } else if (i === 14 && j === 20) {
+        return 1;
+      } else if (i === 15 && j >= 19 && j <= 20) {
+        return 1;
+      }
+    })
+  );
+  return stable;
+};
+
 export const findLabelTitle = (label, obj) => {
   console.log(label, obj, "objjjjj");
   switch (label) {
