@@ -34,7 +34,7 @@ export default function ImageCard({
       case "Random":
         setGrid(randomGrid(grid));
         setActive({
-          random: true,
+          random: !active.random,
           corners: false,
           starship: false,
           beehive: false,
@@ -44,7 +44,7 @@ export default function ImageCard({
         setGrid(fourCorners(grid));
         setActive({
           random: false,
-          corners: true,
+          corners: !active.corners,
           starship: false,
           beehive: false,
         });
@@ -54,7 +54,7 @@ export default function ImageCard({
         setActive({
           random: false,
           corners: false,
-          starship: true,
+          starship: !active.starship,
           beehive: false,
         });
     }

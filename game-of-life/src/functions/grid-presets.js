@@ -40,7 +40,6 @@ export const gliders = (arr) => {
       } else return 0;
     })
   );
-  console.log(glide, arr);
   return glide;
 };
 

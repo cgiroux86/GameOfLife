@@ -28,10 +28,15 @@ export default function Grid() {
   const [running, setRunning] = useState(false);
   const [generation, setGeneration] = useState(0);
   const [color, setColor] = useState(false);
+  const [speed, setSpeed] = useState(1000);
   const runRef = useRef(running);
   const genRef = useRef(generation);
+  const speedRef = useRef(speed);
   genRef.current = generation;
   runRef.current = running;
+  speedRef.current = speed;
+
+  console.log("speed", speed);
 
   //if running, call gol algo every x seconds to update state
   //dont want to repopulate simulation on every re-render, so we use useCallback
@@ -41,7 +46,7 @@ export default function Grid() {
     }
     setGeneration((gen) => gen + 1);
     setGrid((g) => gol(g));
-    setTimeout(simulation, 100);
+    setTimeout(simulation, speedRef.current);
   }, []);
 
   useEffect(() => {
@@ -77,10 +82,12 @@ export default function Grid() {
                       }`,
                     }}
                     onClick={() => {
-                      const updated = produce(grid, (copy) => {
-                        copy[i][j] = 1;
-                      });
-                      setGrid(updated);
+                      if (!running) {
+                        const updated = produce(grid, (copy) => {
+                          copy[i][j] = 1;
+                        });
+                        setGrid(updated);
+                      }
                     }}
                   ></div>
                 );
@@ -100,6 +107,7 @@ export default function Grid() {
             style={{ fontSize: "100px", cursor: "pointer" }}
             onClick={handleStop}
           />
+          <DropDown setSpeed={setSpeed} />
         </div>
         <FormControlLabel
           label="RGB?"
