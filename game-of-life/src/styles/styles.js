@@ -8,7 +8,7 @@ export const Card = styled.div`
     background: lightgrey;
     margin: 15% 0;
     @media (max-width: 768px) {
-      width: 100%;
+      width: 200px;
       background: lightgrey;
       margin: 2% 0;
     }

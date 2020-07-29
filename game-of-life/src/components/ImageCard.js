@@ -3,9 +3,17 @@ import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Card } from "../styles/styles";
-import { randomGrid, fourCorners, gliders } from "../functions/grid-presets";
+import {
+  randomGrid,
+  fourCorners,
+  gliders,
+  fourCornersSmall,
+  glidersSmall,
+} from "../functions/grid-presets";
 import { withStyles } from "@material-ui/core/styles";
 import { purple, green } from "@material-ui/core/colors";
+
+const w = window.screen.availWidth;
 
 const PurpleSwitch = withStyles({
   switchBase: {
@@ -41,7 +49,7 @@ export default function ImageCard({
         });
         break;
       case "Four Corners":
-        setGrid(fourCorners(grid));
+        setGrid(w > 800 ? fourCorners(grid) : fourCornersSmall(grid));
         setActive({
           random: false,
           corners: !active.corners,
@@ -50,7 +58,7 @@ export default function ImageCard({
         });
         break;
       case "Starship":
-        setGrid(gliders(grid));
+        setGrid(w > 800 ? gliders(grid) : glidersSmall(grid));
         setActive({
           random: false,
           corners: false,

@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  useRef,
-  useContext,
-} from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import shortid from "shortid";
 import produce from "immer";
 import { gol } from "../functions/gol-alogrithm";
