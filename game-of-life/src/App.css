@@ -59,6 +59,12 @@
 .rules {
   display: none;
 }
+.button_container {
+  color: white;
+  position: absolute;
+  top: 650px;
+  left: 650px;
+}
 @media (max-width: 768px) {
   .grid_container {
     flex-direction: column;
@@ -91,6 +97,11 @@
   .rules {
     display: inline;
     color: white;
+  }
+  .button_container {
+    position: absolute;
+    top: 60px;
+    left: 300px;
   }
 }
 .main_container {

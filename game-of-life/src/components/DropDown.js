@@ -13,7 +13,7 @@ export default function DropDown({ setSpeed, speed }) {
   return (
     <div>
       <Typography id="discrete-slider-small-steps" gutterBottom>
-        Play Speed
+        {`Play Speed: ${speed}ms`}
       </Typography>
       <Slider
         style={{ width: "40%", color: "white" }}

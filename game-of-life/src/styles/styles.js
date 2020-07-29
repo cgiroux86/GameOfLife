@@ -20,7 +20,8 @@ export const JumboCard = styled.div`
    color 'black';
     width: 50%
     height: 100%;
-    background: lightgrey
+    background: lightgrey;
+    box-shadow: 2px 2px 2px 5px grey;
  
   }
 `;

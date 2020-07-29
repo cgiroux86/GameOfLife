@@ -89,30 +89,44 @@ export default function Grid() {
             )}
         </div>
         <div>
-          <PauseIcon
-            style={{ fontSize: "100px", cursor: "pointer" }}
-            onClick={() => setRunning(!running)}
-          />
-          <PlayArrowIcon
-            style={{ fontSize: "100px", cursor: "pointer" }}
-            onClick={() => setRunning(!running)}
-          />
-          <StopIcon
-            style={{ fontSize: "100px", cursor: "pointer" }}
-            onClick={handleStop}
-          />
-          <DropDown setSpeed={setSpeed} />
+          <div>
+            <div>
+              <PauseIcon
+                style={{ fontSize: "100px", cursor: "pointer" }}
+                onClick={() => setRunning(!running)}
+              />
+              <PlayArrowIcon
+                style={{ fontSize: "100px", cursor: "pointer" }}
+                onClick={() => setRunning(!running)}
+              />
+              <StopIcon
+                style={{ fontSize: "100px", cursor: "pointer" }}
+                onClick={handleStop}
+              />
+            </div>
+            <div
+              className="button_container"
+              // style={{
+              //   color: "white",
+              //   position: "absolute",
+              //   top: 650,
+              //   left: 650,
+              // }}
+            >
+              <FormControlLabel
+                label="RGB?"
+                control={
+                  <Checkbox
+                    style={{ color: "white" }}
+                    checked={color}
+                    onChange={() => setColor(!color)}
+                  />
+                }
+              />
+            </div>
+          </div>
+          <DropDown setSpeed={setSpeed} speed={speed} />
         </div>
-        <FormControlLabel
-          label="RGB?"
-          control={
-            <Checkbox
-              style={{ color: "white" }}
-              checked={color}
-              onChange={() => setColor(!color)}
-            />
-          }
-        />
       </div>
       <div>
         <div className="preset_container">

@@ -78,6 +78,7 @@ export default function ImageCard({
       >
         <FormGroup>
           <FormControlLabel
+            style={{ marginLeft: "5px" }}
             control={
               <PurpleSwitch
                 checked={
