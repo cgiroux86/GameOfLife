@@ -5,8 +5,8 @@ export const Card = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-between;
-    background: grey;
-    margin: 10% 0;
+    background: lightgrey;
+    margin: 15% 0;
     @media (max-width: 768px) {
       width: 100%;
       background: lightgrey;
@@ -20,7 +20,7 @@ export const JumboCard = styled.div`
    color 'black';
     width: 50%
     height: 100%;
-    background: grey
+    background: lightgrey
  
   }
 `;

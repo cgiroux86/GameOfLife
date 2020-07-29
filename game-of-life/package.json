@@ -13,7 +13,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "shortid": "^2.2.15",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "vercel": "^19.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

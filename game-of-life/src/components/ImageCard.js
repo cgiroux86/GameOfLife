@@ -4,6 +4,22 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Card } from "../styles/styles";
 import { randomGrid, fourCorners, gliders } from "../functions/grid-presets";
+import { withStyles } from "@material-ui/core/styles";
+import { purple, green } from "@material-ui/core/colors";
+
+const PurpleSwitch = withStyles({
+  switchBase: {
+    // color: white[300],
+    "&$checked": {
+      color: green[500],
+    },
+    "&$checked + $track": {
+      backgroundColor: green[500],
+    },
+  },
+  checked: {},
+  track: {},
+})(Switch);
 
 export default function ImageCard({
   source,
@@ -55,7 +71,7 @@ export default function ImageCard({
         <FormGroup>
           <FormControlLabel
             control={
-              <Switch
+              <PurpleSwitch
                 checked={
                   label == "Random"
                     ? active["random"]
