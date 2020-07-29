@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import random from "../imgs/random.png";
 import fourCorners from "../imgs/fourcCorners.png";
 import ImageCard from "./ImageCard";
+import starship from "../imgs/starship.png";
 
 const choices = ["Random", "Four Corners", "Starship", "Beehive"];
-const sources = [random, fourCorners];
+const sources = [random, fourCorners, starship];
 export default function Images({ setGrid, grid }) {
   const [active, setActive] = useState({
     random: false,
@@ -13,17 +14,7 @@ export default function Images({ setGrid, grid }) {
     beehive: false,
   });
   return (
-    <div
-      className="choices"
-      //   style={{
-      //     display: "flex",
-      //     flexWrap: "wrap",
-      //     border: "2px solid magenta",
-      //     width: "100%",
-      //     justifyContent: "space-evenly",
-      //     alignItems: "space-between",
-      //   }}
-    >
+    <div className="choices">
       {choices.map((elem, i) => {
         return (
           <div>

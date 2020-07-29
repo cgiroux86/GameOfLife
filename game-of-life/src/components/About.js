@@ -6,9 +6,9 @@ const rules = [
   "any live cell with 2 neighbors",
   "any live cell with 1 neighbor",
 ];
-export default function HowItWorks() {
+export default function About() {
   return (
-    <div className="how_it_works">
+    <div>
       <div
         style={{
           // border: "1px solid yellow",

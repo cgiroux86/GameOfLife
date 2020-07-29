@@ -8,7 +8,7 @@ export const Card = styled.div`
     background: lightgrey;
     margin: 15% 0;
     @media (max-width: 768px) {
-      width: 100%;
+      width: 200px;
       background: lightgrey;
       margin: 2% 0;
     }
@@ -20,7 +20,8 @@ export const JumboCard = styled.div`
    color 'black';
     width: 50%
     height: 100%;
-    background: lightgrey
+    background: lightgrey;
+    box-shadow: 2px 2px 2px 5px grey;
  
   }
 `;

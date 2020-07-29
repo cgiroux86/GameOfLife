@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import { Select, MenuItem, InputLabel } from "@material-ui/core";
-import { randomGrid, fourCorners } from "../functions/grid-presets";
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/core/Slider";
 
-export default function DropDown({ grid, setGrid }) {
+export default function DropDown({ setSpeed, speed }) {
   const [dropdown, setDropdown] = useState("Select a starting pattern");
+
+  const handleSpeedChange = (value) => {
+    setSpeed(value);
+  };
   return (
     <div>
-      <Select
-        labelId="default-input-label"
-        id="select-start-style"
-        value={dropdown}
-        style={{ width: "100%" }}
-        onChange={(e) => {
-          setDropdown(e.target.value);
-          setGrid(fourCorners(grid));
-        }}
-      >
-        <MenuItem value={dropdown} disabled>
-          Select A Pattern
-        </MenuItem>
-        <MenuItem value="random">Random</MenuItem>
-        <MenuItem value="star">Star</MenuItem>
-        <MenuItem value="square">Square</MenuItem>
-        <MenuItem value="circle">Circle</MenuItem>
-      </Select>
+      <Typography id="discrete-slider-small-steps" gutterBottom>
+        {`Play Speed: ${speed}ms`}
+      </Typography>
+      <Slider
+        style={{ width: "40%", color: "white" }}
+        defaultValue={500}
+        getAriaValueText={handleSpeedChange}
+        aria-labelledby="discrete-slider-small-steps"
+        step={200}
+        marks
+        min={10}
+        max={2000}
+        valueLabelDisplay="auto"
+      />
     </div>
   );
 }

@@ -1,11 +1,13 @@
-import React, { useContext, createContext } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 import Main from "./components/Main";
+import { Route } from "react-router-dom";
+import About from "./components/About";
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/" component={Main} />
     </div>
   );
 }

@@ -3,9 +3,18 @@ import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Card } from "../styles/styles";
-import { randomGrid, fourCorners, gliders } from "../functions/grid-presets";
+import {
+  randomGrid,
+  fourCorners,
+  gliders,
+  fourCornersSmall,
+  glidersSmall,
+  stables,
+} from "../functions/grid-presets";
 import { withStyles } from "@material-ui/core/styles";
-import { purple, green } from "@material-ui/core/colors";
+import { green } from "@material-ui/core/colors";
+
+const w = window.screen.availWidth;
 
 const PurpleSwitch = withStyles({
   switchBase: {
@@ -34,29 +43,32 @@ export default function ImageCard({
       case "Random":
         setGrid(randomGrid(grid));
         setActive({
-          random: true,
+          random: !active.random,
           corners: false,
           starship: false,
           beehive: false,
         });
         break;
       case "Four Corners":
-        setGrid(fourCorners(grid));
+        setGrid(w > 800 ? fourCorners(grid) : fourCornersSmall(grid));
         setActive({
           random: false,
-          corners: true,
+          corners: !active.corners,
           starship: false,
           beehive: false,
         });
         break;
       case "Starship":
-        setGrid(gliders(grid));
+        setGrid(w > 800 ? gliders(grid) : glidersSmall(grid));
         setActive({
           random: false,
           corners: false,
-          starship: true,
+          starship: !active.starship,
           beehive: false,
         });
+        break;
+      case "Beehive":
+        setGrid(stables(grid));
     }
   };
   return (
@@ -70,14 +82,15 @@ export default function ImageCard({
       >
         <FormGroup>
           <FormControlLabel
+            style={{ marginLeft: "5px" }}
             control={
               <PurpleSwitch
                 checked={
-                  label == "Random"
+                  label === "Random"
                     ? active["random"]
                     : label === "Four Corners"
                     ? active["corners"]
-                    : label == "Starship"
+                    : label === "Starship"
                     ? active["starship"]
                     : false
                 }
@@ -87,7 +100,7 @@ export default function ImageCard({
             label={label}
           />
         </FormGroup>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <img className="card_img" src={source} alt="random grid layout"></img>
         </div>
       </Card>
