@@ -72,7 +72,7 @@ export default function ImageCard({
     }
   };
   return (
-    <div>
+    <div style={{ border: "1px solid magenta" }}>
       <Card
         style={{
           display: "flex",

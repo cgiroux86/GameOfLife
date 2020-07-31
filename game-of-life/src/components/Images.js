@@ -14,7 +14,7 @@ export default function Images({ setGrid, grid }) {
     beehive: false,
   });
   return (
-    <div className="choices">
+    <div className="choices" style={{ border: "2px solid orange" }}>
       {choices.map((elem, i) => {
         return (
           <div>

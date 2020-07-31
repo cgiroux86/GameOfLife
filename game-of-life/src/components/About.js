@@ -11,7 +11,6 @@ export default function About() {
     <div>
       <div
         style={{
-          // border: "1px solid yellow",
           display: "flex",
           justifyContent: "center",
         }}
@@ -31,7 +30,6 @@ export default function About() {
       </div>
       <div
         style={{
-          // border: "1px solid yellow",
           display: "flex",
           justifyContent: "center",
           marginTop: "5%",
