@@ -40,7 +40,6 @@
 .grid_container {
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid lime;
   width: 80%;
   margin: 0 auto;
 }
