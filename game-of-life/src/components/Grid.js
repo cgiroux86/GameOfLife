@@ -61,7 +61,9 @@ export default function Grid() {
   return (
     <div className="grid_container">
       <div>
-        <div>{`generation number: ${genRef.current}`}</div>
+        <div
+          style={{ fontWeight: "bold", fontSize: "1.3rem" }}
+        >{`generation number: ${genRef.current}`}</div>
         <div
           className="mobile_grid"
           style={{
