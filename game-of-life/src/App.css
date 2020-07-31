@@ -100,6 +100,31 @@
     left: 300px;
   }
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .grid_container {
+    flex-direction: column;
+  }
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .grid_item {
+    width: 20px;
+    height: 20px;
+    border: 1ox solid black;
+    margin: 0;
+    padding: 0;
+  }
+  .grid_container {
+    width: 80%;
+  }
+  .mobile_grid {
+    justify-content: center;
+    width: 100%;
+  }
+}
 .main_container {
   display: flex;
   justify-content: center;

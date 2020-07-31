@@ -15,6 +15,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
 
 const w = window.screen.availWidth;
+console.log(w);
 
 const PurpleSwitch = withStyles({
   switchBase: {
@@ -50,7 +51,7 @@ export default function ImageCard({
         });
         break;
       case "Four Corners":
-        setGrid(w > 800 ? fourCorners(grid) : fourCornersSmall(grid));
+        setGrid(w >= 768 ? fourCorners(grid) : fourCornersSmall(grid));
         setActive({
           random: false,
           corners: !active.corners,
@@ -59,7 +60,7 @@ export default function ImageCard({
         });
         break;
       case "Starship":
-        setGrid(w > 800 ? gliders(grid) : glidersSmall(grid));
+        setGrid(w >= 768 ? gliders(grid) : glidersSmall(grid));
         setActive({
           random: false,
           corners: false,
@@ -69,6 +70,12 @@ export default function ImageCard({
         break;
       case "Beehive":
         setGrid(stables(grid));
+        setActive({
+          random: false,
+          corners: false,
+          starship: false,
+          beehive: !active.beehive,
+        });
     }
   };
   return (
@@ -92,7 +99,9 @@ export default function ImageCard({
                     ? active["corners"]
                     : label === "Starship"
                     ? active["starship"]
-                    : false
+                    : label === "Beehive"
+                    ? active["beehive"]
+                    : null
                 }
                 onChange={toggleChecked}
               />

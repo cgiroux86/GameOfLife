@@ -3,9 +3,10 @@ import random from "../imgs/random.png";
 import fourCorners from "../imgs/fourcCorners.png";
 import ImageCard from "./ImageCard";
 import starship from "../imgs/starship.png";
+import beehive from "../imgs/beehive.png";
 
 const choices = ["Random", "Four Corners", "Starship", "Beehive"];
-const sources = [random, fourCorners, starship];
+const sources = [random, fourCorners, starship, beehive];
 export default function Images({ setGrid, grid }) {
   const [active, setActive] = useState({
     random: false,

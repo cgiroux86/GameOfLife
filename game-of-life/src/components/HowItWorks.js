@@ -3,8 +3,9 @@ import { JumboCard } from "../styles/styles";
 
 const rules = [
   "any live cell with fewer than two live neighbors dies",
-  "any live cell with 2 neighbors",
-  "any live cell with 1 neighbor",
+  "any live cell with 2  or 3 neighbors live neighbors survives to next generation",
+  "any live cell with more than 3 neighbors dies",
+  "any dead cell with 3 live neighbors becomes alive",
 ];
 export default function HowItWorks() {
   return (
@@ -18,13 +19,13 @@ export default function HowItWorks() {
       >
         <JumboCard style={{ color: "black", width: "70%" }}>
           <h2>How It Works</h2>
-          <p>
+          <p style={{ fontWeight: "bold" }}>
             Select a preset, or enter your own starting grid, by clicking on
             cells.
           </p>
-          <ul>
+          <ul style={{ marginTop: "2%" }}>
             {rules.map((rule) => (
-              <li>{rule}</li>
+              <li style={{ marginTop: "2%" }}>{rule}</li>
             ))}
           </ul>
         </JumboCard>

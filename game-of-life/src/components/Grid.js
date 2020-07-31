@@ -13,7 +13,12 @@ import StopIcon from "@material-ui/icons/Stop";
 import DropDown from "./DropDown";
 import HowItWorks from "./HowItWorks";
 //set up rows and columns in 2d array with all 0's to start
-const cells = window.screen.availWidth > 800 ? 25 : 20;
+const cells =
+  window.screen.availWidth > 800 && window.screen.availWidth <= 1200
+    ? 40
+    : window.screen.availWidth < 768
+    ? 20
+    : 25;
 const initialRows = new Array(cells).fill(0);
 const initialGrid = new Array(cells).fill(initialRows);
 
@@ -56,8 +61,11 @@ export default function Grid() {
   return (
     <div className="grid_container">
       <div>
-        <div>{`generation number: ${genRef.current}`}</div>
         <div
+          style={{ fontWeight: "bold", fontSize: "1.3rem" }}
+        >{`generation number: ${genRef.current}`}</div>
+        <div
+          className="mobile_grid"
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${initialRows.length}, 20px)`,
@@ -104,15 +112,7 @@ export default function Grid() {
                 onClick={handleStop}
               />
             </div>
-            <div
-              className="button_container"
-              // style={{
-              //   color: "white",
-              //   position: "absolute",
-              //   top: 650,
-              //   left: 650,
-              // }}
-            >
+            <div className="button_container">
               <FormControlLabel
                 label="RGB?"
                 control={

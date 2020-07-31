@@ -12,6 +12,10 @@ export const Card = styled.div`
       background: lightgrey;
       margin: 2% 0;
     }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      width: 200px;
+      margin: 5% 0;
+    }
   }
 `;
 
