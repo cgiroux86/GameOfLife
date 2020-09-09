@@ -22,7 +22,6 @@ Not currently deployed.
 ![Mobile](https://user-images.githubusercontent.com/59579733/92648141-febd2600-f2b6-11ea-99c6-1462e3147a90.png)
 
 ## Tech/framework used
-Ex. -
 
 <b>Built with</b>
 - React
